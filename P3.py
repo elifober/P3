@@ -25,3 +25,28 @@ class Class:
         self.className = className
         self.studentList = []
 
+for row in sheet.iter_rows(min_row=2):
+    if row[0].value not in myWorkbook.sheetnames:
+        myWorkbook.create_sheet(row[0].value)
+
+for sheet_name in myWorkbook.sheetnames: 
+    currSheet = myWorkbook[sheet_name]  
+    currSheet["A1"] = "Last Name"
+    currSheet["B1"] = "First Name"
+    currSheet["C1"] = "Student ID"
+    currSheet["D1"] = "Grade"
+
+for row in sheet.iter_rows(min_row=2, values_only= True):
+    subject = row[0]
+    myWorkbook.active = myWorkbook[subject]
+    currSheet = myWorkbook.active
+    values = row[1].split('_')
+    grade = row[2]
+    values.append(grade)
+    currSheet.append(values)
+
+
+
+myWorkbook.save(filename="P3.xlsx")
+
+myWorkbook.close()
