@@ -45,7 +45,9 @@ for row in sheet.iter_rows(min_row=2, values_only= True):
     values.append(grade)
     currSheet.append(values)
 
-
+for sheet_name in myWorkbook.sheetnames:
+    last_row = myWorkbook.active.max_row
+    myWorkbook.active.auto_filter.ref = f"A1:D1{last_row}"
 
 myWorkbook.save(filename="P3.xlsx")
 
