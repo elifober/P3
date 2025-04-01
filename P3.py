@@ -1,3 +1,8 @@
+# Authors: Joseph Rather, Chad Laursen, Elias Fobert, Isaac Johnson, Alayna Smith
+
+# Discription: The organizes a messy dataset, splits it into clean and structured sheets by subject, 
+# adds summary statistics, and applies visual formatting for clarity.
+
 #Import Libraries
 import openpyxl
 from openpyxl import Workbook
